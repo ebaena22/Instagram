@@ -12,6 +12,7 @@ public class Post extends ParseObject {
     public static final String KEY_IMAGE = "image";
     public static final String KEY_USER = "user";
     public static final String KEY_HANDLE = "handle";
+    public static final String KEY_CREATED_AT = "createdAt";
 
     public Post() {}
 
@@ -54,7 +55,7 @@ public class Post extends ParseObject {
         }
 
         public Query getTop() {
-            setLimit(50);
+            setLimit(50);;
             return this;
         }
 

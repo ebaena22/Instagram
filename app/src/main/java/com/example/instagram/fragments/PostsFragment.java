@@ -25,10 +25,10 @@ import java.util.List;
 public class PostsFragment extends Fragment {
 
     private RecyclerView rvPosts;
-    private PostsAdapter adapter;
-    private List<Post> mPosts;
+    protected PostsAdapter adapter;
+    protected List<Post> mPosts;
 
-    private SwipeRefreshLayout swipeContainer;
+    protected SwipeRefreshLayout swipeContainer;
 
 
     //onCreateView to inflate the view
@@ -72,19 +72,17 @@ public class PostsFragment extends Fragment {
         loadTopPosts();
     }
 
-    public void fetchTimelineAsync() {
+    protected void fetchTimelineAsync() {
         final Post.Query postsQuery = new Post.Query();
         postsQuery.getTop().withUser();
+        postsQuery.addDescendingOrder(Post.KEY_CREATED_AT);
 
         postsQuery.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> objects, ParseException e) {
                 if (e == null) {
                     adapter.clear();
-                    for (int i = objects.size() - 1; i >= 0; i--) {
-                        mPosts.add(objects.get(i));
-                    }
-                    adapter.addAll(mPosts);
+                    adapter.addAll(objects);
                     swipeContainer.setRefreshing(false);
 
                     for (int i = 0; i < objects.size(); i++) {
@@ -99,20 +97,16 @@ public class PostsFragment extends Fragment {
     }
 
 
-    private void loadTopPosts() {
+    protected void loadTopPosts() {
         final Post.Query postsQuery = new Post.Query();
         postsQuery.getTop().withUser();
-
+        postsQuery.addDescendingOrder(Post.KEY_CREATED_AT);
         postsQuery.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> objects, ParseException e) {
                 if (e == null) {
-//                  mPosts.addAll(objects);
-                    for (int i = objects.size() - 1; i >= 0; i--) {
-                        mPosts.add(objects.get(i));
-                    }
+                    mPosts.addAll(objects);
                     adapter.notifyDataSetChanged();
-
 
                     for (int i = 0; i < objects.size(); i++) {
                         Log.d("PostsFragment", "Post[" + i + "] = " + objects.get(i).getDescription()
