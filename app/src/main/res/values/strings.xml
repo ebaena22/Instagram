@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Parstagram</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Log In</string>
+    <string name="signup_button">Sign Up</string>
+    <string name="description_hint">enter a description</string>
+</resources>
