@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.instagram.fragments.ComposeFragment;
+import com.example.instagram.fragments.PostsFragment;
 import com.example.instagram.model.Post;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
