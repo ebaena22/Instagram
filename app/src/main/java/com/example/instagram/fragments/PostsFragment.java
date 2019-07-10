@@ -60,8 +60,7 @@ public class PostsFragment extends Fragment {
                 // Your code to refresh the list here.
                 // Make sure you call swipeContainer.setRefreshing(false)
                 // once the network request has completed successfully.
-                loadTopPosts();
-                swipeContainer.setRefreshing(false);
+                fetchTimelineAsync();
             }
         });
         // Configure the refreshing colors
@@ -72,6 +71,33 @@ public class PostsFragment extends Fragment {
 
         loadTopPosts();
     }
+
+    public void fetchTimelineAsync() {
+        final Post.Query postsQuery = new Post.Query();
+        postsQuery.getTop().withUser();
+
+        postsQuery.findInBackground(new FindCallback<Post>() {
+            @Override
+            public void done(List<Post> objects, ParseException e) {
+                if (e == null) {
+                    adapter.clear();
+                    for (int i = objects.size() - 1; i >= 0; i--) {
+                        mPosts.add(objects.get(i));
+                    }
+                    adapter.addAll(mPosts);
+                    swipeContainer.setRefreshing(false);
+
+                    for (int i = 0; i < objects.size(); i++) {
+                        Log.d("PostsFragment", "Post[" + i + "] = " + objects.get(i).getDescription()
+                                + "\nusername = " + objects.get(i).getUser().getUsername());
+                    }
+                } else{
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
 
     private void loadTopPosts() {
         final Post.Query postsQuery = new Post.Query();
@@ -86,6 +112,7 @@ public class PostsFragment extends Fragment {
                         mPosts.add(objects.get(i));
                     }
                     adapter.notifyDataSetChanged();
+
 
                     for (int i = 0; i < objects.size(); i++) {
                         Log.d("PostsFragment", "Post[" + i + "] = " + objects.get(i).getDescription()
