@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.parse.SignUpCallback;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,10 +51,7 @@ public class MainActivity extends AppCompatActivity {
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String username = usernameInput.getText().toString();
-                final String password = passwordInput.getText().toString();
-
-                signUp(username, password);
+                signUp();
             }
         });
 
@@ -78,26 +74,30 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void signUp(String username, String password) {
-        // Create the ParseUser
-        ParseUser user = new ParseUser();
-        // Set core properties
-        user.setUsername(username);
-        user.setPassword(password);
-        // Invoke signUpInBackground
-        user.signUpInBackground(new SignUpCallback() {
-            public void done(ParseException e) {
-                if (e == null) {
-                    Log.d("LoginActivity", "Signup successful");
-                    final Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    Log.e("LoginActivity", "Sign up failure.");
-                    e.printStackTrace();
-                }
-            }
-        });
+    private void signUp() {
+        Intent intent = new Intent(MainActivity.this, SignupActivity.class);
+        startActivity(intent);
+        finish();
+
+        //        // Create the ParseUser
+//        ParseUser user = new ParseUser();
+//        // Set core properties
+//        user.setUsername(username);
+//        user.setPassword(password);
+//        // Invoke signUpInBackground
+//        user.signUpInBackground(new SignUpCallback() {
+//            public void done(ParseException e) {
+//                if (e == null) {
+//                    Log.d("LoginActivity", "Signup successful");
+//                    final Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+//                    startActivity(intent);
+//                    finish();
+//                } else {
+//                    Log.e("LoginActivity", "Sign up failure.");
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
 
     }
 

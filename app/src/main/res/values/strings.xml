@@ -5,4 +5,7 @@
     <string name="login_button">Log In</string>
     <string name="signup_button">Sign Up</string>
     <string name="description_hint">enter a description</string>
+    <string name="handle_hint">Handle</string>
+    <string name="email_hint">Email address</string>
+    <string name="phone_hint">Phone number (no spaces)</string>
 </resources>
