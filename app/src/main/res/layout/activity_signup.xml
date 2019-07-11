@@ -4,53 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="100dp"
     tools:context=".SignupActivity">
 
     <EditText
+        android:layout_centerHorizontal="true"
         android:id="@+id/et_username"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
+        android:layout_marginBottom="20dp"
         android:hint="@string/username_hint">
     </EditText>
 
     <EditText
+        android:layout_centerHorizontal="true"
         android:id="@+id/et_handle"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
         android:layout_below="@id/et_username"
+        android:layout_marginBottom="20dp"
         android:hint="@string/handle_hint">
     </EditText>
 
     <EditText
+        android:layout_centerHorizontal="true"
         android:id="@+id/et_password"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
         android:layout_below="@+id/et_handle"
         android:hint="@string/password_hint"
+        android:layout_marginBottom="20dp"
         android:inputType="textPassword">
     </EditText>
 
     <EditText
-    android:id="@+id/et_email"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:layout_below="@id/et_password"
-    android:hint="@string/email_hint">
+        android:layout_centerHorizontal="true"
+        android:id="@+id/et_email"
+        android:layout_height="wrap_content"
+        android:layout_width="340dp"
+        android:layout_below="@id/et_password"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/email_hint">
     </EditText>
 
     <EditText
         android:id="@+id/et_phone"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
         android:layout_below="@id/et_email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
         android:hint="@string/phone_hint">
     </EditText>
 
     <Button
         android:id="@+id/signup_btn"
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/et_phone"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/blue_3"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
         android:text="@string/signup_button"/>
 
 </RelativeLayout>

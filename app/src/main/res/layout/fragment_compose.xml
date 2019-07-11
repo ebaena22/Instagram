@@ -7,37 +7,50 @@
 
     <EditText
         android:id="@+id/description_et"
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/ivPreview"
+        android:layout_centerHorizontal="true"
         android:hint="@string/description_hint"></EditText>
 
     <Button
         android:id="@+id/create_btn"
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/photo_btn"
+        android:backgroundTint="@color/blue_3"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
         android:text="Create" />
 
     <ImageView
         android:id="@+id/ivPreview"
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
         android:layout_height="350dp"
         android:scaleType="centerCrop"
+        android:backgroundTint="@color/blue_3"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/camera_shadow_fill" />
 
     <Button
         android:id="@+id/photo_btn"
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/description_et"
+        android:backgroundTint="@color/blue_3"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
         android:text="Take Photo" />
 
     <Button
         android:id="@+id/logout_btn"
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/create_btn"
+        android:backgroundTint="@color/blue_3"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
         android:text="Log Out" />
 
 

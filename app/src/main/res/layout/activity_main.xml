@@ -6,17 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!--<ImageView-->
+        <!--android:id="@+id/ivLogo"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_above="@id/et_username"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:foregroundGravity="center"-->
+        <!--app:srcCompat="@drawable/nav_logo_whiteout" />-->
+
     <EditText
         android:id="@+id/et_username"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/ivLoginLogo"
+
         android:hint="@string/username_hint">
     </EditText>
 
     <EditText
         android:id="@+id/et_password"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/et_username"
         android:hint="@string/password_hint"
         android:inputType="textPassword">
@@ -24,16 +37,31 @@
 
     <Button
         android:id="@+id/login_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="340dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/et_password"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/blue_2"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
         android:text="@string/login_button" />
 
     <Button
         android:id="@+id/signup_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/login_btn"
-        android:text="@string/signup_button"/>
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/action_bar_semi_transparent_white"
+        android:textAllCaps="false"
+        android:text="@string/signup_now_button"/>
+
+    <ImageView
+        android:id="@+id/ivLoginLogo"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        app:srcCompat="@drawable/nav_logo_whiteout" />
 
 </RelativeLayout>

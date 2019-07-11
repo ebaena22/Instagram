@@ -75,7 +75,6 @@
             android:id="@+id/ivLogo"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:foregroundGravity="center"
             app:srcCompat="@drawable/nav_logo_whiteout" />
 
     </androidx.appcompat.widget.Toolbar>

@@ -103,7 +103,7 @@ public class ComposeFragment extends Fragment {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
-                    Log.d("ComposeFragment", "Create post success!");
+                    Toast.makeText(getContext(), "Successfully created post!", Toast.LENGTH_SHORT).show();
                 } else {
                     e.printStackTrace();
                 }
