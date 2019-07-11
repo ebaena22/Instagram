@@ -22,7 +22,6 @@ import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
 import com.example.instagram.HomeActivity;
-import com.example.instagram.MainActivity;
 import com.example.instagram.R;
 import com.example.instagram.model.Post;
 import com.parse.ParseException;
@@ -40,7 +39,7 @@ public class ComposeFragment extends Fragment {
     private Button createButton;
     private Button photoButton;
     private ImageView ivPreview;
-    private Button logoutButton;
+//    private Button logoutButton;
     private HomeActivity homeActivity;
 
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
@@ -60,7 +59,7 @@ public class ComposeFragment extends Fragment {
         createButton = view.findViewById(R.id.create_btn);
         photoButton = view.findViewById(R.id.photo_btn);
         ivPreview = view.findViewById(R.id.ivPreview);
-        logoutButton = view.findViewById(R.id.logout_btn);
+//        logoutButton = view.findViewById(R.id.logout_btn);
         homeActivity = new HomeActivity();
 
         createButton.setOnClickListener(new View.OnClickListener() {
@@ -82,15 +81,15 @@ public class ComposeFragment extends Fragment {
             }
         });
 
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ParseUser.logOut();
-                ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
+//        logoutButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ParseUser.logOut();
+//                ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+//                Intent intent = new Intent(getContext(), MainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     private void createPost(String description, ParseFile imageFile, ParseUser user) {

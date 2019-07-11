@@ -1,14 +1,20 @@
 package com.example.instagram.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.instagram.MainActivity;
 import com.example.instagram.PostsAdapter;
 import com.example.instagram.R;
 import com.example.instagram.model.Post;
@@ -21,6 +27,17 @@ import java.util.List;
 
 public class ProfileFragment extends PostsFragment {
 
+    public static final String KEY_HANDLE = "handle";
+
+    private Button logoutButton;
+    private TextView tvProfileHandle;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_profile, container, false);
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         rvPosts = view.findViewById(R.id.rvPosts);
@@ -31,11 +48,15 @@ public class ProfileFragment extends PostsFragment {
         adapter = new PostsAdapter(getContext(), mPosts);
         // set the adapter on the recycler view
         rvPosts.setAdapter(adapter);
+        logoutButton = view.findViewById(R.id.logout_btn);
         // set the layout manager on the recycler view
         StaggeredGridLayoutManager gridLayoutManager =
                 new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         // Attach the layout manager to the recycler view
         rvPosts.setLayoutManager(gridLayoutManager);
+
+        tvProfileHandle = view.findViewById(R.id.tvProfileHandle);
+        tvProfileHandle.setText(ParseUser.getCurrentUser().getString(KEY_HANDLE));
 
 
         swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
@@ -54,6 +75,16 @@ public class ProfileFragment extends PostsFragment {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ParseUser.logOut();
+                ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         loadTopPosts();
     }

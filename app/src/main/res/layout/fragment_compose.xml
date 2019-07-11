@@ -43,15 +43,15 @@
         android:layout_centerHorizontal="true"
         android:text="Take Photo" />
 
-    <Button
-        android:id="@+id/logout_btn"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/create_btn"
-        android:backgroundTint="@color/blue_3"
-        android:textColor="@color/white"
-        android:layout_centerHorizontal="true"
-        android:text="Log Out" />
+    <!--<Button-->
+        <!--android:id="@+id/logout_btn"-->
+        <!--android:layout_width="340dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/create_btn"-->
+        <!--android:backgroundTint="@color/blue_3"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text="Log Out" />-->
 
 
 </RelativeLayout>
