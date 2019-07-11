@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.instagram.EndlessRecyclerViewScrollListener;
 import com.example.instagram.PostsAdapter;
 import com.example.instagram.R;
 import com.example.instagram.model.Post;
@@ -29,6 +30,7 @@ public class PostsFragment extends Fragment {
     protected List<Post> mPosts;
 
     protected SwipeRefreshLayout swipeContainer;
+    private EndlessRecyclerViewScrollListener scrollListener;
     protected int limit;
 
 
@@ -52,6 +54,17 @@ public class PostsFragment extends Fragment {
         // set the layout manager on the recycler view
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvPosts.setLayoutManager(linearLayoutManager);
+
+        scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+                loadNextPosts();
+            }
+        };
+        // Adds the scroll listener to RecyclerView
+        rvPosts.addOnScrollListener(scrollListener);
 
 
         swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
@@ -85,6 +98,7 @@ public class PostsFragment extends Fragment {
                 if (e == null) {
                     adapter.clear();
                     adapter.addAll(objects);
+                    scrollListener.resetState();
                     swipeContainer.setRefreshing(false);
 
                     for (int i = 0; i < objects.size(); i++) {
@@ -99,8 +113,33 @@ public class PostsFragment extends Fragment {
     }
 
 
+
+
     protected void loadTopPosts() {
         final Post.Query postsQuery = new Post.Query();
+        postsQuery.getTop().withUser();
+        postsQuery.addDescendingOrder(Post.KEY_CREATED_AT);
+        postsQuery.findInBackground(new FindCallback<Post>() {
+            @Override
+            public void done(List<Post> objects, ParseException e) {
+                if (e == null) {
+                    mPosts.addAll(objects);
+                    adapter.notifyDataSetChanged();
+
+                    for (int i = 0; i < objects.size(); i++) {
+                        Log.d("PostsFragment", "Post[" + i + "] = " + objects.get(i).getDescription()
+                                + "\nusername = " + objects.get(i).getUser().getUsername());
+                    }
+                } else{
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    protected void loadNextPosts() {
+        final Post.Query postsQuery = new Post.Query();
+        postsQuery.whereLessThan(Post.KEY_CREATED_AT, mPosts.get(mPosts.size() - 1).getCreatedAt());
         postsQuery.getTop().withUser();
         postsQuery.addDescendingOrder(Post.KEY_CREATED_AT);
         postsQuery.findInBackground(new FindCallback<Post>() {
