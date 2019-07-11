@@ -235,7 +235,7 @@ public class ProfileFragment extends PostsFragment {
                         if (e != null) {
                             e.printStackTrace();
                         } else {
-                            Toast.makeText(getContext(), "Updated profile picture", Toast.LENGTH_SHORT);
+                            Toast.makeText(getContext(), "Updated profile picture", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
