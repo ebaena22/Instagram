@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/ivProfilePosts"
         android:fontFamily="@font/roboto"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
@@ -22,7 +24,8 @@
         android:id="@+id/ivImage"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_below="@id/tvHandle"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/ivProfilePosts"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         tools:srcCompat="@tools:sample/backgrounds/scenic[19]" />
@@ -116,5 +119,16 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="0dp"
         android:text="TextView" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/ivProfilePosts"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/instagram_user_filled_24"
+        />
 
 </RelativeLayout>

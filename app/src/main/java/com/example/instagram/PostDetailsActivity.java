@@ -95,6 +95,5 @@ public class PostDetailsActivity extends AppCompatActivity {
                 tvNumLikes.setText(post.getNumLikes() + " likes");
             }
         });
-
     }
 }

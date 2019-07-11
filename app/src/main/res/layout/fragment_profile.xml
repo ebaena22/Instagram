@@ -54,7 +54,6 @@
         android:textStyle="bold"
         android:layout_below="@id/ivProfile"/>
 
-
     <Button
         android:id="@+id/logout_btn"
         android:layout_width="250dp"
@@ -66,7 +65,8 @@
         android:text="Log Out"
         android:textColor="@color/white" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ivProfile"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -76,6 +76,7 @@
         android:layout_marginBottom="5dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/instagram_user_filled_24" />
+        android:src="@drawable/instagram_user_filled_24"
+        />
+
 </RelativeLayout>

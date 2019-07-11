@@ -125,13 +125,15 @@
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ivProfileImageDetails"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/instagram_user_filled_24" />
+        android:src="@drawable/instagram_user_filled_24"
+        />
+
 </RelativeLayout>
