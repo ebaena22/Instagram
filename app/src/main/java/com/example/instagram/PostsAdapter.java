@@ -15,6 +15,9 @@ import com.bumptech.glide.Glide;
 import com.example.instagram.model.Post;
 import com.parse.ParseFile;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
@@ -51,6 +54,9 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
         private ImageView ivImage;
         private TextView tvDescription;
         private TextView tvLowerHandle;
+        private TextView tvPostTimestamp;
+        private ImageView ivLike;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -58,6 +64,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvLowerHandle = itemView.findViewById(R.id.tvLowerHandle);
+            tvPostTimestamp = itemView.findViewById(R.id.tvPostTimestamp);
+            ivLike = itemView.findViewById(R.id.ivLike);
             itemView.setOnClickListener(this);
         }
 
@@ -72,7 +80,11 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
             }
             tvDescription.setText(post.getDescription());
             tvLowerHandle.setText(post.getHandle());
+            Date timestamp = post.getCreatedAt();
 
+            DateFormat df = new SimpleDateFormat("MM--dd--yyyy HH:mm:ss");
+            String strTimestamp= df.format(timestamp);
+            tvPostTimestamp.setText(strTimestamp);
         }
 
         @Override
@@ -91,7 +103,11 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
                 context.startActivity(intent);
             }
         }
+
     }
+
+
+
 
     // Clean all elements of the recycler
     public void clear() {

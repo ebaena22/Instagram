@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,7 @@ public class ProfileFragment extends PostsFragment {
 
     private Button logoutButton;
     private TextView tvProfileHandle;
+    ImageView ivProfile;
 
     @Nullable
     @Override
@@ -57,7 +59,7 @@ public class ProfileFragment extends PostsFragment {
 
         tvProfileHandle = view.findViewById(R.id.tvProfileHandle);
         tvProfileHandle.setText(ParseUser.getCurrentUser().getString(KEY_HANDLE));
-
+        ivProfile = view.findViewById(R.id.ivProfile);
 
         swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading
@@ -139,4 +141,5 @@ public class ProfileFragment extends PostsFragment {
             }
         });
     }
+
 }

@@ -1,7 +1,9 @@
 package com.example.instagram;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -9,7 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.instagram.model.Post;
+import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.SaveCallback;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -23,6 +27,9 @@ public class PostDetailsActivity extends AppCompatActivity {
     private TextView tvTimestamp;
     private TextView tvHandle;
     private TextView tvTopHandle;
+    private ImageView ivLike;
+    private TextView tvNumLikes;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +44,8 @@ public class PostDetailsActivity extends AppCompatActivity {
         tvTimestamp = findViewById(R.id.tvTimestamp);
         tvHandle = findViewById(R.id.tvHandle);
         tvTopHandle = findViewById(R.id.tvTopHandle);
+        ivLike = findViewById(R.id.ivPostLike);
+        tvNumLikes = findViewById(R.id.tvNumLikes);
 
         tvDescription.setText(post.getDescription());
 
@@ -46,6 +55,7 @@ public class PostDetailsActivity extends AppCompatActivity {
         tvTimestamp.setText(strTimestamp);
         tvHandle.setText(post.getHandle());
         tvTopHandle.setText(post.getHandle());
+        tvNumLikes.setText(post.getNumLikes() + " likes");
 
         ParseFile image = post.getImage();
         if (image != null) {
@@ -53,6 +63,29 @@ public class PostDetailsActivity extends AppCompatActivity {
                     .load(image.getUrl())
                     .into(ivImage);
         }
+
+
+        ivLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int nLikes = post.getNumLikes();
+                nLikes++;
+                post.setNumLikes(nLikes);
+
+                ivLike.setImageResource(R.drawable.ufi_heart_active);
+                ivLike.setColorFilter(Color.RED);
+
+                post.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e != null) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                tvNumLikes.setText(post.getNumLikes() + " likes");
+            }
+        });
 
     }
 }
