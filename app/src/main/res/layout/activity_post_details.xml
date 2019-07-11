@@ -9,7 +9,8 @@
     <ImageView
         android:id="@+id/ivImage"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
+        android:layout_below="@id/tvTopHandle"
         android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/backgrounds/scenic[19]" />
 
@@ -17,13 +18,100 @@
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ivImage"
+        android:layout_below="@id/ivLike"
+        android:layout_toRightOf="@id/tvHandle"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/tabbar_black"
+        android:fontFamily="@font/roboto"
+        android:textSize="18sp"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/tvTimestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_below="@id/tvDescription"
         android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvHandle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivLike"
+        android:fontFamily="@font/roboto"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/tabbar_black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/ivLike"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/ivImage"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/ufi_heart"
+        />
+
+    <ImageView
+        android:id="@+id/ivComment"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/ivImage"
+        android:layout_toRightOf="@id/ivLike"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/ufi_comment" />
+
+    <ImageView
+        android:id="@+id/ivDirect"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/ivImage"
+        android:layout_toRightOf="@id/ivComment"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/direct" />
+
+    <ImageView
+        android:id="@+id/ivSave"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/ivImage"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:tint="@color/black"
+        app:srcCompat="@drawable/ufi_save" />
+
+    <TextView
+        android:id="@+id/tvTopHandle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/tabbar_black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/ivMore"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:rotation="90"
+        app:srcCompat="@drawable/ufi_more" />
 </RelativeLayout>

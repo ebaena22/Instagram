@@ -21,6 +21,8 @@ public class PostDetailsActivity extends AppCompatActivity {
     private ImageView ivImage;
     private TextView tvDescription;
     private TextView tvTimestamp;
+    private TextView tvHandle;
+    private TextView tvTopHandle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,8 @@ public class PostDetailsActivity extends AppCompatActivity {
         ivImage = findViewById(R.id.ivImage);
         tvDescription = findViewById(R.id.tvDescription);
         tvTimestamp = findViewById(R.id.tvTimestamp);
+        tvHandle = findViewById(R.id.tvHandle);
+        tvTopHandle = findViewById(R.id.tvTopHandle);
 
         tvDescription.setText(post.getDescription());
 
@@ -40,6 +44,8 @@ public class PostDetailsActivity extends AppCompatActivity {
         DateFormat df = new SimpleDateFormat("MM--dd--yyyy HH:mm:ss");
         String strTimestamp= df.format(timestamp);
         tvTimestamp.setText(strTimestamp);
+        tvHandle.setText(post.getHandle());
+        tvTopHandle.setText(post.getHandle());
 
         ParseFile image = post.getImage();
         if (image != null) {

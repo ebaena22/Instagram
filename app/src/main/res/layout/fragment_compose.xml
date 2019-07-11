@@ -21,9 +21,10 @@
 
     <ImageView
         android:id="@+id/ivPreview"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        app:srcCompat="@android:color/black" />
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/camera_shadow_fill" />
 
     <Button
         android:id="@+id/photo_btn"

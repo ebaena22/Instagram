@@ -24,11 +24,12 @@ import java.util.List;
 
 public class PostsFragment extends Fragment {
 
-    private RecyclerView rvPosts;
+    protected RecyclerView rvPosts;
     protected PostsAdapter adapter;
     protected List<Post> mPosts;
 
     protected SwipeRefreshLayout swipeContainer;
+    protected int limit;
 
 
     //onCreateView to inflate the view
@@ -51,6 +52,7 @@ public class PostsFragment extends Fragment {
         // set the layout manager on the recycler view
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvPosts.setLayoutManager(linearLayoutManager);
+
 
         swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading

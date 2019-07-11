@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/miDirect"
+        android:icon="@drawable/direct"
+        app:showAsAction="ifRoom|withText"
+        android:checkable="false"
+        android:title="Profile">
+    </item>
+</menu>

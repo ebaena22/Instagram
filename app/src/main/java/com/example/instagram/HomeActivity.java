@@ -2,10 +2,12 @@ package com.example.instagram;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -33,6 +35,7 @@ public class HomeActivity extends AppCompatActivity {
 //    public String photoFileName = "photo.jpg";
 //    File photoFile;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +49,12 @@ public class HomeActivity extends AppCompatActivity {
         //logoutButton = findViewById(R.id.logout_btn);
         //feedButton = findViewById(R.id.feed_btn);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // Find the toolbar view inside the activity layout
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+        // Make sure the toolbar exists in the activity and is not null
+        setSupportActionBar(toolbar);
 
 //        createButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -91,6 +100,8 @@ public class HomeActivity extends AppCompatActivity {
 //            }
 //        });
 
+
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -114,6 +125,12 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.action_home);
 
         loadTopPosts();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_home, menu);
+        return true;
     }
 
 //    private void createPost(String description, ParseFile imageFile, ParseUser user) {
@@ -207,4 +224,5 @@ public class HomeActivity extends AppCompatActivity {
 //            }
 //        }
 //    }
+
 }

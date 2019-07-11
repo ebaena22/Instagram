@@ -50,12 +50,14 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
         private TextView tvHandle;
         private ImageView ivImage;
         private TextView tvDescription;
+        private TextView tvLowerHandle;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvHandle = itemView.findViewById(R.id.tvHandle);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
+            tvLowerHandle = itemView.findViewById(R.id.tvLowerHandle);
             itemView.setOnClickListener(this);
         }
 
@@ -69,7 +71,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
                         .into(ivImage);
             }
             tvDescription.setText(post.getDescription());
-
+            tvLowerHandle.setText(post.getHandle());
 
         }
 
