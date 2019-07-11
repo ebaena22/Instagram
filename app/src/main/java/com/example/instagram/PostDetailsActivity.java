@@ -29,6 +29,7 @@ public class PostDetailsActivity extends AppCompatActivity {
     private TextView tvTopHandle;
     private ImageView ivLike;
     private TextView tvNumLikes;
+    private ImageView ivProfile;
 
 
     @Override
@@ -46,6 +47,7 @@ public class PostDetailsActivity extends AppCompatActivity {
         tvTopHandle = findViewById(R.id.tvTopHandle);
         ivLike = findViewById(R.id.ivPostLike);
         tvNumLikes = findViewById(R.id.tvNumLikes);
+        ivProfile = findViewById(R.id.ivProfileImageDetails);
 
         tvDescription.setText(post.getDescription());
 
@@ -62,6 +64,13 @@ public class PostDetailsActivity extends AppCompatActivity {
             Glide.with(this)
                     .load(image.getUrl())
                     .into(ivImage);
+        }
+
+        ParseFile profileImage = post.getUser().getParseFile("profileImage");
+        if (profileImage != null) {
+            Glide.with(this)
+                    .load(profileImage.getUrl())
+                    .into(ivProfile);
         }
 
 

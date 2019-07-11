@@ -10,7 +10,7 @@
         android:id="@+id/ivImage"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_below="@id/tvTopHandle"
+        android:layout_below="@id/ivProfileImageDetails"
         android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/backgrounds/scenic[19]" />
 
@@ -99,6 +99,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/ivProfileImageDetails"
         android:fontFamily="@font/roboto"
         android:textColor="@color/tabbar_black"
         android:textStyle="bold"
@@ -123,4 +124,14 @@
         android:layout_marginLeft="10dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <ImageView
+        android:id="@+id/ivProfileImageDetails"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/instagram_user_filled_24" />
 </RelativeLayout>
