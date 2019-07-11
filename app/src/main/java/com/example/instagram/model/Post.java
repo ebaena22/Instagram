@@ -58,6 +58,14 @@ public class Post extends ParseObject {
         put(KEY_NUM_LIKES, nLikes);
     }
 
+    public ParseFile  getProfileImage() {
+        return getUser().getParseFile(KEY_PROFILE_IMAGE);
+    }
+
+    public void setProfileImage(ParseFile image) {
+        getUser().put(KEY_PROFILE_IMAGE, image);
+    }
+
     public static class Query extends ParseQuery<Post> {
 
         public Query() {

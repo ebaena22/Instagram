@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/updatePhoto_btn"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/tvProfileHandle"
+        android:layout_marginTop="17dp"
+        android:backgroundTint="@color/blue_3"
+        android:text="Update profile picture"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white" />
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/swipeContainer"
         android:layout_width="409dp"
@@ -43,15 +54,17 @@
         android:textStyle="bold"
         android:layout_below="@id/ivProfile"/>
 
+
     <Button
         android:id="@+id/logout_btn"
         android:layout_width="250dp"
         android:layout_height="40dp"
+        android:layout_below="@id/tvProfileHandle"
+        android:layout_marginTop="65dp"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/blue_3"
         android:text="Log Out"
-        android:textColor="@color/white"
-        android:layout_below="@id/tvProfileHandle" />
+        android:textColor="@color/white" />
 
     <ImageView
         android:id="@+id/ivProfile"
