@@ -11,10 +11,11 @@
         android:layout_width="250dp"
         android:layout_height="40dp"
         android:layout_below="@id/tvProfileHandle"
-        android:layout_marginTop="17dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
         android:backgroundTint="@color/blue_3"
         android:text="Update profile picture"
-        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
         android:textColor="@color/white" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -43,26 +44,27 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <TextView
-
         android:id="@+id/tvProfileHandle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/roboto"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
         android:textStyle="bold"
-        android:layout_below="@id/ivProfile"/>
+        android:layout_toRightOf="@id/ivProfile"/>
 
     <Button
         android:id="@+id/logout_btn"
         android:layout_width="250dp"
         android:layout_height="40dp"
         android:layout_below="@id/tvProfileHandle"
-        android:layout_marginTop="65dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/blue_3"
         android:text="Log Out"
+        android:textAllCaps="false"
         android:textColor="@color/white" />
 
     <de.hdodenhof.circleimageview.CircleImageView
